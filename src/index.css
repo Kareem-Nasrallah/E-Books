@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300..800&family=Playfair+Display:wght@400..900&display=swap");
+
+* {
+  font-family: "Merriweather Sans", sans-serif;
+  font-optical-sizing: auto;
+  color: #212529;
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  color: #000;
+}

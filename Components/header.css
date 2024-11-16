@@ -1,0 +1,11 @@
+nav{
+    max-width: 400px !important;
+}
+.navItem{
+    text-decoration: none;
+    color: #212529;
+    transition: 0.3s;
+}
+.navItem:hover{
+    color: rgb(255, 0, 0);
+}
