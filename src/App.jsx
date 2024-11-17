@@ -1,10 +1,10 @@
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
-import About from "../Pages/About";
-import Categories from "../Pages/Categories";
-import Home from "../Pages/Home";
-import Membership from "../Pages/Membership";
-import Search from "../Pages/Search";
+import Footer from "./Components/Footer";
+// import Header from "./Components/Header";
+import About from "./Pages/About";
+import Categories from "./Pages/Categories";
+import Home from "./Pages/Home";
+import Membership from "./Pages/Membership";
+// import Search from "./Pages/Search";
 import { Route, Routes } from "react-router-dom";
 
 function App() {

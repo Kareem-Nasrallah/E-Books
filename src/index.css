@@ -1,12 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300..800&family=Playfair+Display:wght@400..900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 * {
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: "Roboto Flex", sans-serif;
   font-optical-sizing: auto;
-  color: #212529;
+  color: #313539;
+  padding: 0;margin: 0;
 }
-
 .heading {
-  font-family: "Playfair Display", serif;
   color: #000;
+}
+.oval-arrow {
+  border-top-left-radius: 35% 50% !important;
+  border-top-right-radius: 35% 50% !important;
+  border-bottom-left-radius: 35% 50% !important;
+  border-bottom-right-radius: 35% 50% !important;
+}
+.oval-p {
+  transition: .5s;
+  border-top-left-radius: 20% 50% !important;
+  border-top-right-radius: 20% 50% !important;
+  border-bottom-left-radius: 20% 50% !important;
+  border-bottom-right-radius: 20% 50% !important;
+}
+.btn-dark {
+  background: #111 !important;
+  width: 60px;
+}
+.btn-dark:hover {
+  background: #313539 !important;
+  width: 60px;
+}
+.btn-dark i{
+  color: #eee;
 }
