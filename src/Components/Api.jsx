@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Categories = () => {
+const Api = () => {
+  const [data, setData] = useState("");
   const fichData = async () => {
     try {
       const axiosData = await axios.get("https://gutendex.com/books");
-      console.log(axiosData.data);
+      setData(axiosData.data);
     } catch (err) {
       console.log(err);
     }
@@ -15,8 +15,11 @@ const Categories = () => {
   useEffect(() => {
     fichData();
   }, []);
-
-  return <div>Categories</div>;
+  return (
+    <>
+      <h1>{data}</h1>
+    </>
+  );
 };
 
-export default Categories;
+export default Api;
