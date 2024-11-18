@@ -1,5 +1,5 @@
-nav{
-    max-width: 400px !important;
+ul{
+    max-width: 500px !important;
 }
 .navItem{
     text-decoration: none;
@@ -7,5 +7,8 @@ nav{
     transition: 0.3s;
 }
 .navItem:hover{
+    color: rgb(7, 138, 106);
+}
+.navActive{
     color: rgb(7, 138, 106);
 }

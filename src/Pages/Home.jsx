@@ -14,10 +14,9 @@ const Home = () => {
           }}
         >
           <Header />
-          <div className="d-flex align-items-center justify-content-center" style={{ height: "90%" }}>
             <div
               className=" d-flex flex-column gap-4 justify-content-evenly py-3"
-              style={{ height: "100%" }}
+              style={{ height: "90%" }}
             >
               <h2
                 className="heading m-0"
@@ -62,7 +61,7 @@ const Home = () => {
                   Explore now
                 </p>
                 <button className="btn btn-dark oval-arrow">
-                  <i class="fa-solid fa-arrow-right-long"></i>
+                  <i className="fa-solid fa-arrow-right-long"></i>
                 </button>
               </div>
               <div>
@@ -79,7 +78,7 @@ const Home = () => {
                 </p>
                 <div className="d-inline-flex align-items-center gap-3">
                   <i
-                    class="fa-solid fa-users"
+                    className="fa-solid fa-users"
                     style={{ fontSize: "3em", color: "rgb(7 158 126)" }}
                   ></i>
                   <div className="pt-1" style={{ lineHeight: "20px" }}>
@@ -89,7 +88,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
         </div>
         <div
           className="col mx-2 d-flex align-items-center"
