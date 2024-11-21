@@ -11,7 +11,7 @@ const Home = () => {
             borderRadius: "15px",
             minWidth: "380px",
           }}
-        >
+          >
           <Header />
           <div
             className=" d-flex flex-column gap-4 justify-content-evenly py-3"

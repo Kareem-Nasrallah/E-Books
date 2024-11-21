@@ -1,0 +1,11 @@
+.card-img-overlay{
+    opacity: 0;
+    transition: .5s;
+    background:rgba(255, 255, 255, 0.411);
+    backdrop-filter:blur(10px);
+    
+}
+
+.card:hover .card-img-overlay{
+    opacity: 1;
+}
