@@ -2,21 +2,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./apiTopic.css";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/scrollbar";
-import "swiper/css/navigation";
-import { Autoplay, Scrollbar, Navigation } from "swiper/modules";
+import { useParams } from "react-router-dom";
 
-const Api = ({ topic }) => {
-  const [data, setData] = useState("");
-
+const Api = () => {
+  const [data, setData] = useState([]);
+  const { topic } = useParams();
+  console.log(topic);
   const fichData = async () => {
     try {
       const axiosData = await axios.get(
-        `https://gutendex.com/books?topic=${topic}`
+        `https://gutendex.com/books?topic=${topic}&limit=22`
       );
-      console.log(axiosData.data.results);
+      console.log(axiosData.data);
       setData(axiosData.data);
     } catch (err) {
       console.log(err);
@@ -29,67 +26,60 @@ const Api = ({ topic }) => {
 
   return (
     <>
-      <h4>{topic}</h4>
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={1}
-        scrollbar={{
-          hide: true,
-        }}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-        modules={[Autoplay, Scrollbar, Navigation]}
-        breakpoints={{
-          "@0.00": {
-            slidesPerView: 5,
-            spaceBetween: 5,
-          },
-          "@0.75": {
-            slidesPerView: 6,
-            spaceBetween: 10,
-          },
-          "@1.00": {
-            slidesPerView: 7,
-            spaceBetween: 30,
-          },
-          "@1.50": {
-            slidesPerView: 8,
-            spaceBetween: 30,
-          },
-        }}
-      >
-        {data.results?.map((book, i) => (
-          <SwiperSlide key={i}>
-            <div className="card bg-dark text-white my-3">
-              <img
-                src={book.formats["image/jpeg"]}
-                width="30px"
-                height="200px"
-                className="card-img"
-              />
-              <div className="card-img-overlay" style={{ textAlign: "center" }}>
-                <h5
-                  className="card-title"
-                  style={{ fontSize: "14px", color: "#000" }}
-                >
-                  {book.title}
-                </h5>
-                <p
-                  className="card-text"
-                  style={{ fontSize: "12px", color: "#111" }}
-                >
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
+      <h4 className="mt-5">{topic}</h4>
+      {data.length === 0 ? (
+        <div
+          class="d-flex gap-2 justify-content-center align-items-center"
+          style={{ height: "75vh" }}
+        >
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="row gap-5 mt-4">
+            {data.results?.slice(0, 18).map((book, i) => (
+              <div
+                className="col p-0 d-flex justify-content-center align-items-center"
+                key={i}
+                style={{ width: "150px" }}
+              >
+                <div className="card">
+                  <img
+                    src={book.formats["image/jpeg"]}
+                    className="card-img border border-dark"
+                    style={{ width: "150px" }}
+                  />
+                  <div
+                    className="card-img-overlay d-flex flex-column justify-content-between overflow-auto"
+                    style={{ textAlign: "center" }}
+                  >
+                    <h5
+                      className="card-title"
+                      style={{ fontSize: "14px", color: "#000" }}
+                    >
+                      {book.title}
+                    </h5>
+                    {book.authors.map((author, i) => (
+                      <p
+                        className="card-text fw-normal"
+                        style={{ fontSize: "12px", color: "#111" }}
+                        key={i}
+                      >
+                        <span className="fw-bold" style={{ color: "#111" }}>
+                          By:{" "}
+                        </span>
+                        {author.name}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 };
