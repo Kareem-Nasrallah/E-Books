@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 
 const Home = () => {
@@ -18,11 +19,9 @@ const Home = () => {
             style={{ height: "90%" }}
           >
             <h2
-              className="heading m-0"
+              className="heading m-0 text-capitalize fw-bold"
               style={{
                 fontSize: "3.5em",
-                textTransform: "capitalize",
-                fontWeight: "700",
                 color: "#000",
                 lineHeight: "110%",
               }}
@@ -59,9 +58,13 @@ const Home = () => {
               >
                 Explore now
               </p>
+              <Link
+              to="/categories"
+              >
               <button className="btn btn-dark oval-arrow">
                 <i className="fa-solid fa-arrow-right-long"></i>
               </button>
+              </Link>
             </div>
             <div>
               <p

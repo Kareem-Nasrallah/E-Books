@@ -61,18 +61,28 @@ const Api = () => {
                     >
                       {book.title}
                     </h5>
-                    {book.authors.map((author, i) => (
-                      <p
-                        className="card-text fw-normal"
-                        style={{ fontSize: "12px", color: "#111" }}
-                        key={i}
-                      >
-                        <span className="fw-bold" style={{ color: "#111" }}>
-                          By:{" "}
-                        </span>
-                        {author.name}
-                      </p>
-                    ))}
+                    <a
+                      href={book.formats["text/html"]}
+                      className="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Read
+                    </a>
+                    <div>
+                      {book.authors.map((author, i) => (
+                        <p
+                          className="card-text fw-normal m-0"
+                          style={{ fontSize: "12px", color: "#111" }}
+                          key={i}
+                        >
+                          <span className="fw-bold" style={{ color: "#111" }}>
+                            By:{" "}
+                          </span>
+                          {author.name}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

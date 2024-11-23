@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
 * {
   font-family: "Roboto Flex", sans-serif;
   font-optical-sizing: auto;
   color: #313539;
-  padding: 0;margin: 0;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 .heading {
@@ -16,7 +17,7 @@
   border-bottom-right-radius: 35% 50% !important;
 }
 .oval-p {
-  transition: .5s;
+  transition: 0.5s;
   border-top-left-radius: 20% 50% !important;
   border-top-right-radius: 20% 50% !important;
   border-bottom-left-radius: 20% 50% !important;
@@ -30,6 +31,13 @@
   background: #313539 !important;
   width: 60px;
 }
-.btn-dark i{
+.btn-dark i {
   color: #eee;
+}
+.topics {
+  transition: 0.3s;
+}
+.topics:hover {
+  background: #ffd4a9;
+  scale: 1.05;
 }

@@ -1,6 +1,5 @@
 import Header from "../Components/Header";
-// import ApiTopic from "../Components/ApiTopic";
-import { Link, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 
 const Categories = () => {
   return (
@@ -10,6 +9,7 @@ const Categories = () => {
         style={{
           background: "rgb(238,242,243)",
           borderRadius: "15px",
+          color:"rgb(145 0 255)"
         }}
       >
         <div className="d-flex">

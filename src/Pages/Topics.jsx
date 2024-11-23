@@ -3,21 +3,42 @@ import { Link } from "react-router-dom";
 
 const Topics = () => {
   const topics = [
-    "Antiquities",
+    "Adult",
     "Adventure",
+    "American",
+    "Antiquities",
     "Art",
+    "Athens",
     "Biographies",
     "Business",
     "Children",
+    "Classes",
+    "Comedies",
     "Cooking",
+    "Courage",
+    "Death",
     "Drama",
     "Fantasy",
+    "Future Life",
+    "German",
+    "governesses",
     "Health",
     "Historical Fiction",
+    "Home",
     "Horror",
     "Humor",
+    "Italy",
+    "jokes",
+    "Kings",
+    "Language",
+    "Literature",
+    "Love",
+    "Married",
+    "math",
     "Mystery",
+    "Occultism",
     "Philosophy",
+    "Physicians",
     "Poetry",
     "Religion",
     "Romance",
@@ -28,8 +49,10 @@ const Topics = () => {
     "Sports",
     "Technology",
     "Thriller",
+    "Tragedies",
     "Travel",
-    "Literature",
+    "Woodman",
+    "Youth",
   ];
 
   return (
@@ -37,8 +60,12 @@ const Topics = () => {
       {topics.map((topic) => (
         <div className="col-lg-2 col-3 text-center my-4 mx-5" key={topic}>
           <Link
-            className="d-inline-block"
-            style={{ width: "fit-content" }}
+            className="topics d-inline-block p-3 pb-2 text-decoration-none"
+            style={{
+              width: "fit-content",
+              borderRadius: "10px",
+              color: "rgb(145, 0, 255)",
+            }}
             to={`${topic}`}
           >
             <h5 className="text-nowrap" style={{ width: "fit-content" }}>
