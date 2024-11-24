@@ -56,15 +56,14 @@ const Topics = () => {
   ];
 
   return (
-    <div className="row mt-5  justify-content-evenly">
+    <div className="row mt-2 pt-4 radius-15 justify-content-evenly">
       {topics.map((topic) => (
         <div className="col-lg-2 col-3 text-center my-4 mx-5" key={topic}>
           <Link
-            className="topics d-inline-block p-3 pb-2 text-decoration-none"
+            className="topics d-inline-block p-2 pb-1 text-decoration-none"
             style={{
               width: "fit-content",
               borderRadius: "10px",
-              color: "rgb(145, 0, 255)",
             }}
             to={`${topic}`}
           >

@@ -1,25 +1,14 @@
 import React from "react";
-import Header from "../Components/Header";
 
 const Membership = () => {
   return (
-    <div className="d-flex p-3 px-5" style={{ minHeight: "100vh" }}>
-      <div
-        className="col"
-        style={{
-          height: "95vh",
-        }}
-      >
-        <div
-          className="me-2 p-2 px-5 h-50"
-          style={{
-            background: "rgb(238,242,243)",
-            borderRadius: "15px",
-            minWidth: "400px",
-          }}
-        >
-          <Header />
-          <div className="row">
+    <>
+      <div className="row p-3 px-5" style={{ minHeight: "82vh" }}>
+        <div className="col">
+          <div
+            className="h-50 p-3 px-4 row justify-content-center align-items-center radius-15"
+            style={{ background: "rgb(238,242,243)" }}
+            >
             <div className="col">
               <h3
                 style={{
@@ -32,9 +21,9 @@ const Membership = () => {
               </h3>
               <p> meetings to exchange and discuss books</p>
             </div>
-            <div className="col-4 d-flex flex-column gap-2 align-items-start justify-content-center">
+            <div className="col-4 d-flex flex-column gap-2 align-items-center justify-content-center">
               <p
-                className="d-inline-block oval-p p-2 px-3 m-0 me-2"
+                className="d-inline-block oval-p p-2 px-3 m-0"
                 style={{ width: "fit-content", border: "#313539 1px solid" }}
               >
                 Join Us
@@ -44,30 +33,28 @@ const Membership = () => {
               </button>
             </div>
           </div>
+          <div
+            style={{
+              height: "47%",
+              background: "rgb(241 233 235)",
+            }}
+            className="radius-15 me-2 mt-3 d-flex justify-content-center align-items-center overflow-hidden"
+          >
+            <img src="/meeting.png" />
+          </div>
         </div>
         <div
+          className="col ms-2 d-flex align-items-center radius-15"
           style={{
-            height: "47%",
-            borderRadius: "15px",
-            background: "rgb(241 233 235)",
+            background: "rgb(255, 228, 201)",
+            maxWidth: "500px",
+            height: "80vh",
           }}
-          className="me-2 mt-3 d-flex justify-content-center align-items-center overflow-hidden"
         >
-          <img src="/meeting.png" />
+          <img src="/member.png" className="w-100" />
         </div>
       </div>
-      <div
-        className="col ms-2 d-flex align-items-center"
-        style={{
-          background: "rgb(255, 228, 201)",
-          borderRadius: "15px",
-          maxWidth: "500px",
-          height: "95vh",
-        }}
-      >
-        <img src="/member.png" className="w-100" />
-      </div>
-    </div>
+    </>
   );
 };
 

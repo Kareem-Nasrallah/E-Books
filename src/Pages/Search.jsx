@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Header from "../Components/Header";
 import axios from "axios";
 
 const Search = () => {
@@ -8,7 +7,7 @@ const Search = () => {
   const fichData = async () => {
     try {
       const axiosData = await axios.get(
-        `https://gutendex.com/books?topic=${topic}&limit=22`
+        `https://gutendex.com/books?topic=love`
       );
       console.log(axiosData.data);
       setData(axiosData.data);
@@ -24,20 +23,13 @@ const Search = () => {
   return (
     <div className="p-3 px-5">
       <div
-        className="p-2 px-5"
+        className="p-2 px-5 radius-15"
         style={{
           background: "rgb(238,242,243)",
-          borderRadius: "15px",
           color: "rgb(145 0 255)",
           minHeight: "95vh",
         }}
       >
-        <div className="d-flex">
-          <div className="col">
-            <Header />
-          </div>
-          <div style={{ width: "507px" }}></div>
-        </div>
         <form className="row g-3 mt-4 pt-1">
           <div className="col-6">
             <label for="name" className="form-label">
@@ -75,28 +67,28 @@ const Search = () => {
           </div>
           <div className="col-6 row">
             <p className="col-12 m-0 mt-3">the has </p>
-          <div className="form-check col-6">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="copyright"
-              id="copyright1"
-            />
-            <label className="form-check-label" for="copyright1">
-              Default radio
-            </label>
-          </div>
-          <div className="form-check col-6">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="copyright"
-              id="copyright2"
-            />
-            <label className="form-check-label" for="copyright2">
-              Default checked radio
-            </label>
-          </div>
+            <div className="form-check col-6">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="copyright"
+                id="copyright1"
+              />
+              <label className="form-check-label" for="copyright1">
+                Default radio
+              </label>
+            </div>
+            <div className="form-check col-6">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="copyright"
+                id="copyright2"
+              />
+              <label className="form-check-label" for="copyright2">
+                Default checked radio
+              </label>
+            </div>
           </div>
           <div className="col-md-4">
             <label for="languages" className="form-label">

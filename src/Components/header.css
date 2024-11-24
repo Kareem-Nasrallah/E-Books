@@ -1,14 +1,20 @@
-ul{
-    max-width: 500px !important;
+ul {
+  max-width: 500px !important;
 }
-.navItem{
-    text-decoration: none;
-    color: #212529;
-    transition: 0.3s;
+.navItem {
+  text-decoration: none;
+  color: #212529;
+  transition: 0.3s;
 }
-.navItem:hover{
-    color: rgb(7, 138, 106);
+.navItem:hover {
+  color: #078a6a;
 }
-.navActive{
-    color: rgb(7, 138, 106);
+.navActive {
+  color: #078a6a;
+}
+#searchBtn:hover i {
+  color:#eef2f3;
+}
+.form-control:focus{
+    border: solid 1px #078a6a !important;
 }

@@ -1,19 +1,16 @@
 import { Link } from "react-router-dom";
-import Header from "../Components/Header";
 
 const Home = () => {
   return (
     <>
-      <div className="row p-3 px-5" style={{ minHeight: "100vh" }}>
+      <div className="row gap-3 p-3 px-5" style={{ minHeight: "82vh" }}>
         <div
-          className="col mx-2 p-2 px-5"
+          className="col p-2 px-4 radius-15"
           style={{
             background: "rgb(238,242,243)",
-            borderRadius: "15px",
             minWidth: "380px",
           }}
           >
-          <Header />
           <div
             className=" d-flex flex-column gap-4 justify-content-evenly py-3"
             style={{ height: "90%" }}
@@ -92,10 +89,9 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="col mx-2 d-flex align-items-center"
+          className="col d-flex align-items-center radius-15"
           style={{
             background: "rgb(255,228,201)",
-            borderRadius: "15px",
             maxWidth: "500px",
           }}
         >

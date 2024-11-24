@@ -6,10 +6,12 @@ import Home from "./Pages/Home";
 import Membership from "./Pages/Membership";
 import Search from "./Pages/Search";
 import { Route, Routes } from "react-router-dom";
+import Header from "./Components/Header";
 
 function App() {
   return (
     <>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />}>

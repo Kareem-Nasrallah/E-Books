@@ -36,8 +36,15 @@
 }
 .topics {
   transition: 0.3s;
+  color: rgb(80 40 230)
 }
 .topics:hover {
-  background: #ffd4a9;
+  color: #078a6a;
   scale: 1.05;
+}
+.row{
+  --bs-gutter-x: 0 !important;
+}
+.radius-15{
+  border-radius: 15px;
 }

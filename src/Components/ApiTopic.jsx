@@ -11,7 +11,7 @@ const Api = () => {
   const fichData = async () => {
     try {
       const axiosData = await axios.get(
-        `https://gutendex.com/books?topic=${topic}&limit=22`
+        `https://gutendex.com/books?topic=${topic}`
       );
       console.log(axiosData.data);
       setData(axiosData.data);
