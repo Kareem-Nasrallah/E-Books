@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Search = () => {
-  const [data, setData] = useState([]);
+const Search = ({ searchValue }) => {
+  const [data, setData] = useState({});
 
   const fichData = async () => {
     try {
       const axiosData = await axios.get(
-        `https://gutendex.com/books?topic=love`
+        `https://gutendex.com/books?search=${searchValue}`
       );
       console.log(axiosData.data);
       setData(axiosData.data);
@@ -17,8 +17,9 @@ const Search = () => {
   };
 
   useEffect(() => {
+    console.log(searchValue);
     fichData();
-  }, []);
+  }, [searchValue]);
 
   return (
     <div className="p-3 px-5">
@@ -30,9 +31,24 @@ const Search = () => {
           minHeight: "95vh",
         }}
       >
-        <form className="row g-3 mt-4 pt-1">
+        <p className="w-100 text-end">
+          <a
+            className="btn btn-secondary"
+            data-bs-toggle="collapse"
+            href="#filter"
+            role="button"
+            aria-expanded="false"
+            aria-controls="filter"
+          >
+            filter
+          </a>
+        </p>
+        <form
+          id="filter"
+          className="border border-success collapse rounded row g-3 my-2 p-4 pt-1"
+        >
           <div className="col-6">
-            <label for="name" className="form-label">
+            <label htmlFor="name" className="form-label">
               Name
             </label>
             <input
@@ -43,7 +59,7 @@ const Search = () => {
             />
           </div>
           <div className="col-6">
-            <label for="category" className="form-label">
+            <label htmlFor="category" className="form-label">
               Category
             </label>
             <input
@@ -54,13 +70,13 @@ const Search = () => {
             />
           </div>
           <div className="col-md-6">
-            <label for="autherStart" className="form-label">
+            <label htmlFor="autherStart" className="form-label">
               Author Year Start
             </label>
             <input type="text" className="form-control" id="autherStart" />
           </div>
           <div className="col-md-6">
-            <label for="autherEnd" className="form-label">
+            <label htmlFor="autherEnd" className="form-label">
               Author Year End
             </label>
             <input type="text" className="form-control" id="autherEnd" />
@@ -74,7 +90,7 @@ const Search = () => {
                 name="copyright"
                 id="copyright1"
               />
-              <label className="form-check-label" for="copyright1">
+              <label className="form-check-label" htmlFor="copyright1">
                 Default radio
               </label>
             </div>
@@ -85,17 +101,17 @@ const Search = () => {
                 name="copyright"
                 id="copyright2"
               />
-              <label className="form-check-label" for="copyright2">
+              <label className="form-check-label" htmlFor="copyright2">
                 Default checked radio
               </label>
             </div>
           </div>
           <div className="col-md-4">
-            <label for="languages" className="form-label">
+            <label htmlFor="languages" className="form-label">
               Languages
             </label>
             <select id="languages" className="form-select">
-              <option selected></option>
+              <option defaultValue></option>
               <option value="ar">Arabic</option>
               <option value="fr">french</option>
               <option value="ar">Arabic</option>
@@ -115,72 +131,79 @@ const Search = () => {
               Searsh
             </button>
           </div>
-        </form>
-      </div>
-      <div>
-        {data.length === 0 ? (
-          <div
-            className="d-flex gap-2 justify-content-center align-items-center"
-            style={{ height: "75vh" }}
-          >
-            <div className="spinner-border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        ) : (
-          <>
-            <div className="row gap-5 mt-4">
-              {data.results?.slice(0, 18).map((book, i) => (
-                <div
-                  className="col p-0 d-flex justify-content-center align-items-center"
-                  key={i}
-                  style={{ width: "150px" }}
-                >
-                  <div className="card">
-                    <img
-                      src={book.formats["image/jpeg"]}
-                      className="card-img border border-dark"
-                      style={{ width: "150px" }}
-                    />
+        </form>{" "}
+        <div
+          className="d-flex gap-2 justify-content-center align-items-center"
+          style={{ minHeight: "75vh" }}
+        >
+          {searchValue ? (
+            data.length === 0 ? (
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : data.count > 0 ? (
+              <>
+                <div className="row gap-5 mt-4">
+                  {data.results?.slice(0, 18).map((book, i) => (
                     <div
-                      className="card-img-overlay d-flex flex-column justify-content-between overflow-auto"
-                      style={{ textAlign: "center" }}
+                      className="col p-0 d-flex justify-content-center align-items-center"
+                      key={i}
+                      style={{ width: "150px" }}
                     >
-                      <h5
-                        className="card-title"
-                        style={{ fontSize: "14px", color: "#000" }}
-                      >
-                        {book.title}
-                      </h5>
-                      <a
-                        href={book.formats["text/html"]}
-                        className="btn btn-primary"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Read
-                      </a>
-                      <div>
-                        {book.authors.map((author, i) => (
-                          <p
-                            className="card-text fw-normal m-0"
-                            style={{ fontSize: "12px", color: "#111" }}
-                            key={i}
+                      <div className="card">
+                        <img
+                          src={book.formats["image/jpeg"]}
+                          className="card-img border border-dark"
+                          style={{ width: "150px" }}
+                        />
+                        <div
+                          className="card-img-overlay d-flex flex-column justify-content-between overflow-auto"
+                          style={{ textAlign: "center" }}
+                        >
+                          <h5
+                            className="card-title"
+                            style={{ fontSize: "14px", color: "#000" }}
                           >
-                            <span className="fw-bold" style={{ color: "#111" }}>
-                              By:{" "}
-                            </span>
-                            {author.name}
-                          </p>
-                        ))}
+                            {book.title}
+                          </h5>
+                          <a
+                            href={book.formats["text/html"]}
+                            className="btn btn-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Read
+                          </a>
+                          <div>
+                            {book.authors.map((author, i) => (
+                              <p
+                                className="card-text fw-normal m-0"
+                                style={{ fontSize: "12px", color: "#111" }}
+                                key={i}
+                              >
+                                <span
+                                  className="fw-bold"
+                                  style={{ color: "#111" }}
+                                >
+                                  By:{" "}
+                                </span>
+                                {author.name}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </>
-        )}
+              </>
+            ) : (
+              <p className="fs-2 fw-bold">Sorry, no results found</p>
+            )
+          ) : (
+            <p className="fs-2 fw-bold">Type what you want to search for</p>
+          )}
+        </div>
       </div>
     </div>
   );

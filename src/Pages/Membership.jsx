@@ -48,7 +48,7 @@ const Membership = () => {
           style={{
             background: "rgb(255, 228, 201)",
             maxWidth: "500px",
-            height: "80vh",
+            minHeight: "80vh",
           }}
         >
           <img src="/member.png" className="w-100" />

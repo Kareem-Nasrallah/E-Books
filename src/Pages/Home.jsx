@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className="row gap-3 p-3 px-5" style={{ minHeight: "82vh" }}>
+      <div className="row gap-3 p-3 px-5">
         <div
           className="col p-2 px-4 radius-15"
           style={{
@@ -12,8 +12,7 @@ const Home = () => {
           }}
           >
           <div
-            className=" d-flex flex-column gap-4 justify-content-evenly py-3"
-            style={{ height: "90%" }}
+            className="h-100 d-flex flex-column gap-4 justify-content-evenly py-3"
           >
             <h2
               className="heading m-0 text-capitalize fw-bold"
@@ -75,7 +74,7 @@ const Home = () => {
               >
                 our community
               </p>
-              <div className="d-inline-flex align-items-center gap-3">
+              <div className="pb-2 d-inline-flex align-items-center gap-3">
                 <i
                   className="fa-solid fa-users"
                   style={{ fontSize: "3em", color: "rgb(7 158 126)" }}
@@ -89,7 +88,7 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="col d-flex align-items-center radius-15"
+          className="home-hiro col d-flex align-items-center radius-15"
           style={{
             background: "rgb(255,228,201)",
             maxWidth: "500px",

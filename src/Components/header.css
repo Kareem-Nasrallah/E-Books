@@ -13,8 +13,11 @@ ul {
   color: #078a6a;
 }
 #searchBtn:hover i {
-  color:#eef2f3;
+  color: #eef2f3;
 }
-.form-control:focus{
-    border: solid 1px #078a6a !important;
+.form-control:focus {
+  border: solid 1px #078a6a !important;
+}
+.redFocus:focus {
+  border: solid 1px red !important;
 }

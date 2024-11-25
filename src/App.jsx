@@ -7,11 +7,14 @@ import Membership from "./Pages/Membership";
 import Search from "./Pages/Search";
 import { Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
+import { useState } from "react";
 
 function App() {
+
+  const [searchValue,setSearchV] = useState('')
   return (
     <>
-      <Header />
+      <Header searchValue={searchValue} setSearchV={setSearchV}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />}>
@@ -19,7 +22,7 @@ function App() {
           <Route path=":topic" element={<ApiTopic />} />
         </Route>
         <Route path="/membership" element={<Membership />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search  searchValue={searchValue} />} />
       </Routes>
       <Footer />
     </>

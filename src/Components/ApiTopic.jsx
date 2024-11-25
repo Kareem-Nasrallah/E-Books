@@ -26,7 +26,7 @@ const Api = () => {
 
   return (
     <>
-      <h4 className="mt-5">{topic}</h4>
+      <h4 className="mt-2 pt-4 ps-5">{topic}</h4>
       {data.length === 0 ? (
         <div
           class="d-flex gap-2 justify-content-center align-items-center"
