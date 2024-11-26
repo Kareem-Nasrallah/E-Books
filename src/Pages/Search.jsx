@@ -3,23 +3,47 @@ import axios from "axios";
 
 const Search = ({ searchValue }) => {
   const [data, setData] = useState({});
+  const [form, setForm] = useState({
+    search: "",
+    topic: "",
+    author_year_end: "",
+    author_year_start: "",
+    copyright: "",
+    languages: "",
+  });
+  const [sendForm, setSendForm] = useState({
+    topic: "",
+    author_year_end: "",
+    author_year_start: "",
+    copyright: "",
+    languages: "",
+  });
 
   const fichData = async () => {
-    try {
-      const axiosData = await axios.get(
-        `https://gutendex.com/books?search=${searchValue}`
-      );
-      console.log(axiosData.data);
-      setData(axiosData.data);
-    } catch (err) {
-      console.log(err);
+    if (searchValue) {
+      try {
+        const axiosData = await axios.get(
+          `https://gutendex.com/books?search=${searchValue}&&topic=${sendForm.topic}&&author_year_start=${sendForm.author_year_start}&&author_year_end=${sendForm.author_year_end}&&copyright=${sendForm.copyright}&&languages=${sendForm.languages}`
+        );
+        console.log(axiosData.data);
+        setData(axiosData.data);
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      return;
     }
   };
 
   useEffect(() => {
     console.log(searchValue);
     fichData();
-  }, [searchValue]);
+  }, [searchValue, sendForm]);
+
+  const filterFun = (e) => {
+    e.preventDefault();
+    setSendForm(sendForm);
+  };
 
   return (
     <div className="p-3 px-5">
@@ -46,6 +70,7 @@ const Search = ({ searchValue }) => {
         <form
           id="filter"
           className="border border-success collapse rounded row g-3 my-2 p-4 pt-1"
+          onSubmit={filterFun}
         >
           <div className="col-6">
             <label htmlFor="name" className="form-label">
@@ -56,6 +81,8 @@ const Search = ({ searchValue }) => {
               className="form-control"
               id="name"
               placeholder="Book's Name  Or  Auther's Name"
+              value={form.search}
+              onChange={(e) => setForm({ ...form, search: e.target.value })}
             />
           </div>
           <div className="col-6">
@@ -63,6 +90,8 @@ const Search = ({ searchValue }) => {
               Category
             </label>
             <input
+              value={form.topic}
+              onChange={(e) => setForm({ topic: e.target.value, ...form })}
               type="text"
               className="form-control"
               id="category"
@@ -73,25 +102,45 @@ const Search = ({ searchValue }) => {
             <label htmlFor="autherStart" className="form-label">
               Author Year Start
             </label>
-            <input type="text" className="form-control" id="autherStart" />
+            <input
+              type="number"
+              value={form.author_year_start}
+              onChange={(e) =>
+                setForm({ author_year_start: e.target.value, ...form })
+              }
+              className="form-control"
+              id="autherStart"
+            />
           </div>
           <div className="col-md-6">
             <label htmlFor="autherEnd" className="form-label">
               Author Year End
             </label>
-            <input type="text" className="form-control" id="autherEnd" />
+            <input
+              type="number"
+              value={form.author_year_end}
+              onChange={(e) =>
+                setForm({ author_year_end: e.target.value, ...form })
+              }
+              className="form-control"
+              id="autherEnd"
+            />
           </div>
           <div className="col-6 row">
-            <p className="col-12 m-0 mt-3">the has </p>
+            <p className="col-12 m-0 mt-3">the Book has Copyright</p>
             <div className="form-check col-6">
               <input
                 className="form-check-input"
                 type="radio"
                 name="copyright"
                 id="copyright1"
+                value={true}
+                onChange={(e) =>
+                  setForm({ ...form, copyright: e.target.value })
+                }
               />
               <label className="form-check-label" htmlFor="copyright1">
-                Default radio
+                Yes
               </label>
             </div>
             <div className="form-check col-6">
@@ -100,9 +149,13 @@ const Search = ({ searchValue }) => {
                 type="radio"
                 name="copyright"
                 id="copyright2"
+                value={false}
+                onChange={(e) =>
+                  setForm({ ...form, copyright: e.target.value })
+                }
               />
               <label className="form-check-label" htmlFor="copyright2">
-                Default checked radio
+                No
               </label>
             </div>
           </div>
@@ -110,8 +163,15 @@ const Search = ({ searchValue }) => {
             <label htmlFor="languages" className="form-label">
               Languages
             </label>
-            <select id="languages" className="form-select">
-              <option defaultValue></option>
+            <select
+              id="languages"
+              className="form-select"
+              value={form.languages}
+              onChange={(e) => {
+                setForm({ ...form, languages: e.target.value });
+              }}
+            >
+              <option defaultValue=""></option>
               <option value="ar">Arabic</option>
               <option value="fr">french</option>
               <option value="ar">Arabic</option>
@@ -128,7 +188,7 @@ const Search = ({ searchValue }) => {
           </div>
           <div className="col-12">
             <button type="submit" className="btn btn-primary">
-              Searsh
+              Filter
             </button>
           </div>
         </form>{" "}
@@ -137,7 +197,7 @@ const Search = ({ searchValue }) => {
           style={{ minHeight: "75vh" }}
         >
           {searchValue ? (
-            data.length === 0 ? (
+            Object.keys(data).length === 0 ? (
               <div className="spinner-border" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>
@@ -201,7 +261,9 @@ const Search = ({ searchValue }) => {
               <p className="fs-2 fw-bold">Sorry, no results found</p>
             )
           ) : (
-            <p className="fs-2 fw-bold">Type what you want to search for</p>
+            <p className="fs-2 fw-bold">
+              Please type what you want to Search for..
+            </p>
           )}
         </div>
       </div>

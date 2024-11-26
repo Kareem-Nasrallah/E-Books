@@ -29,11 +29,11 @@ const Api = () => {
       <h4 className="mt-2 pt-4 ps-5">{topic}</h4>
       {data.length === 0 ? (
         <div
-          class="d-flex gap-2 justify-content-center align-items-center"
+          className="d-flex gap-2 justify-content-center align-items-center"
           style={{ height: "75vh" }}
         >
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       ) : (
