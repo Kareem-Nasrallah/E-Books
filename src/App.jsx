@@ -12,6 +12,7 @@ import { useState } from "react";
 function App() {
 
   const [searchValue,setSearchV] = useState('')
+  
   return (
     <>
       <Header searchValue={searchValue} setSearchV={setSearchV}/>
@@ -22,7 +23,7 @@ function App() {
           <Route path=":topic" element={<ApiTopic />} />
         </Route>
         <Route path="/membership" element={<Membership />} />
-        <Route path="/search" element={<Search  searchValue={searchValue} />} />
+        <Route path="/search" element={<Search  searchValue={searchValue} setSearchV={setSearchV} />} />
       </Routes>
       <Footer />
     </>

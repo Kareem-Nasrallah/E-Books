@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Search = ({ searchValue }) => {
+const Search = ({ searchValue, setSearchV }) => {
   const [data, setData] = useState({});
   const [form, setForm] = useState({
-    search: "",
+    search: searchValue,
     topic: "",
     author_year_end: "",
     author_year_start: "",
@@ -23,9 +23,11 @@ const Search = ({ searchValue }) => {
     if (searchValue) {
       try {
         const axiosData = await axios.get(
-          `https://gutendex.com/books?search=${searchValue}&&topic=${sendForm.topic}&&author_year_start=${sendForm.author_year_start}&&author_year_end=${sendForm.author_year_end}&&copyright=${sendForm.copyright}&&languages=${sendForm.languages}`
+          `https://gutendex.com/books?search=${searchValue}${sendForm.topic}${sendForm.author_year_start}${sendForm.author_year_end}${sendForm.copyright}${sendForm.languages}`
         );
         console.log(axiosData.data);
+        console.log(form)
+        console.log('searchValue:'+searchValue)
         setData(axiosData.data);
       } catch (err) {
         console.log(err);
@@ -36,13 +38,24 @@ const Search = ({ searchValue }) => {
   };
 
   useEffect(() => {
-    console.log(searchValue);
     fichData();
+    console.log('searchValue:'+searchValue);
   }, [searchValue, sendForm]);
 
   const filterFun = (e) => {
     e.preventDefault();
-    setSendForm(sendForm);
+    setSearchV(form.search)
+    setSendForm({
+      topic: form.topic ? `&&topic=${form.topic}` : "",
+      author_year_end: form.author_year_end
+        ? `&&author_year_end=${form.author_year_end}`
+        : "",
+      author_year_start: form.author_year_start
+        ? `&&author_year_start=${form.author_year_start}`
+        : "",
+      copyright: form.copyright ? `&&copyright=${form.copyright}` : "",
+      languages: form.languages ? `&&languages=${form.languages}` : "",
+    });
   };
 
   return (
@@ -55,7 +68,7 @@ const Search = ({ searchValue }) => {
           minHeight: "95vh",
         }}
       >
-        <p className="w-100 text-end">
+        <p className="w-100 text-end mt-2">
           <a
             className="btn btn-secondary"
             data-bs-toggle="collapse"
@@ -91,7 +104,7 @@ const Search = ({ searchValue }) => {
             </label>
             <input
               value={form.topic}
-              onChange={(e) => setForm({ topic: e.target.value, ...form })}
+              onChange={(e) => setForm({...form, topic: e.target.value })}
               type="text"
               className="form-control"
               id="category"
@@ -106,7 +119,7 @@ const Search = ({ searchValue }) => {
               type="number"
               value={form.author_year_start}
               onChange={(e) =>
-                setForm({ author_year_start: e.target.value, ...form })
+                setForm({...form, author_year_start: e.target.value })
               }
               className="form-control"
               id="autherStart"
@@ -120,7 +133,7 @@ const Search = ({ searchValue }) => {
               type="number"
               value={form.author_year_end}
               onChange={(e) =>
-                setForm({ author_year_end: e.target.value, ...form })
+                setForm({...form, author_year_end: e.target.value,  })
               }
               className="form-control"
               id="autherEnd"
@@ -172,18 +185,14 @@ const Search = ({ searchValue }) => {
               }}
             >
               <option defaultValue=""></option>
-              <option value="ar">Arabic</option>
-              <option value="fr">french</option>
-              <option value="ar">Arabic</option>
+              <option value="en">Engilsh</option>
+              <option value="fr">French</option>
               <option value="es">Spanish</option>
               <option value="de">German</option>
+              <option value="fi">Finnish </option>
               <option value="zh">Chinese (Simplified)</option>
-              <option value="ja">Japanese</option>
-              <option value="ru">Russian</option>
               <option value="it">Italian</option>
               <option value="pt">Portuguese</option>
-              <option value="hi">Hindi</option>
-              <option value="ko">Korean</option>
             </select>
           </div>
           <div className="col-12">

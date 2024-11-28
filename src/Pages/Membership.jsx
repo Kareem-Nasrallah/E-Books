@@ -48,6 +48,7 @@ const Membership = () => {
           style={{
             background: "rgb(255, 228, 201)",
             maxWidth: "500px",
+            minWidth:'150px',
             minHeight: "80vh",
           }}
         >
