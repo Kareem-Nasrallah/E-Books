@@ -23,7 +23,7 @@ const Footer = () => {
           href="https://github.com/Kareem-Nasrallah"
         >
           <i
-            class="fa-brands fa-github fs-4 px-2"
+            className="fa-brands fa-github fs-4 px-2"
             style={{ color: "#000" }}
           ></i>
         </a>
@@ -32,14 +32,14 @@ const Footer = () => {
           className="ms-3"
           href="https://www.linkedin.com/in/kareem-nasrallah-181772282/"
         >
-          <i class="fa-brands fa-linkedin fs-4 px-2 text-info"></i>
+          <i className="fa-brands fa-linkedin fs-4 px-2 text-info"></i>
         </a>
         <a
           target="_blank"
           className="ms-3"
           href="https://www.facebook.com/kareem.nasrallah.904"
         >
-          <i class="fa-brands fa-facebook fs-4 px-2 text-primary"></i>
+          <i className="fa-brands fa-facebook fs-4 px-2 text-primary"></i>
         </a>
         <a target="_blank" className="ms-3" href="https://wa.me/+201276434424">
           <i className="fa-brands fa-whatsapp fs-4 px-2 text-success"></i>

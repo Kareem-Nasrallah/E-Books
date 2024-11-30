@@ -13,7 +13,11 @@ const Membership = () => {
             }}
             className="radius-15 d-flex justify-content-center mt-2 align-items-center overflow-hidden"
           >
-            <img src="/meeting.png" className="meetingPhoto" style={{height:'93%'}} />
+            <img
+              src="/meeting.png"
+              className="meetingPhoto"
+              style={{ height: "93%", maxHeight: "400px" }}
+            />
           </div>
           <div
             className="p-3 px-4 mt-4 d-flex justify-content-center radius-15 hiro-div"
@@ -57,7 +61,11 @@ const Membership = () => {
             minHeight: "80vh",
           }}
         >
-          <img src="/member.png" className="w-100" style={{maxWidth:'500px'}} />
+          <img
+            src="/member.png"
+            className="w-75"
+            style={{ maxWidth: "500px" }}
+          />
         </div>
       </div>
     </>

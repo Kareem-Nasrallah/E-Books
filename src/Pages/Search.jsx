@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import '../Components/apiTopic.css'
+import '../Components/ApiTopic/apiTopic.css'
 
 const Search = ({ searchValue, setSearchV }) => {
   const [data, setData] = useState({});

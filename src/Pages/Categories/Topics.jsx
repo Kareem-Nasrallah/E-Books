@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './topics.css'
 const Topics = () => {
   const topics = [
     "Adult",

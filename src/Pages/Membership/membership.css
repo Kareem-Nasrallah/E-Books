@@ -34,9 +34,10 @@
     padding-bottom: 30px;
   }
 }
-@media (width < 763px) {
+@media (max-width: 763px) {
   .member-divPhoto {
     max-width: none !important;
+    min-height: 60vh !important;
   }
 }
 @media (550px > width) {

@@ -1,12 +1,12 @@
-import ApiTopic from "./Components/ApiTopic";
-import Topics from "./Pages/Topics";
-import Footer from "./Components/Footer";
-import Categories from "./Pages/Categories";
-import Home from "./Pages/Home";
-import Membership from "./Pages/Membership";
+import ApiTopic from "./Components/ApiTopic/ApiTopic";
+import Topics from "./Pages/Categories/Topics";
+import Footer from "./Components/Footer/Footer";
+import Categories from "./Pages/Categories/Categories";
+import Home from "./Pages/Home/Home";
+import Membership from "./Pages/Membership/Membership";
 import Search from "./Pages/Search";
 import { Route, Routes } from "react-router-dom";
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 import { useState } from "react";
 
 function App() {
