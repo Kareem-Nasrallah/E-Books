@@ -1,0 +1,68 @@
+.hiro-div {
+  gap: 3rem;
+  align-items: center;
+}
+.join-div {
+  flex-direction: column;
+}
+@media (1246px > width) and (width > 763px) {
+  .hiro-text {
+    width: 300px !important;
+  }
+}
+@media (936px > width) and (width > 763px) {
+  .hiro-div {
+    gap: 1rem !important;
+  }
+  .meetingPhoto {
+    height: 265px !important;
+  }
+}
+@media (885px > width) and (width > 763px) {
+  .hiro-div {
+    flex-direction: column;
+    align-items: start !important;
+  }
+  .hiro-text {
+    width: 255px !important;
+  }
+  .meetingPhoto {
+    height: 218px !important;
+  }
+  .join-div {
+    flex-direction: row !important;
+    padding-bottom: 30px;
+  }
+}
+@media (width < 763px) {
+  .member-divPhoto {
+    max-width: none !important;
+  }
+}
+@media (550px > width) {
+  .hiro-div {
+    gap: 1rem !important;
+  }
+}
+@media (width < 430px) {
+  .meetingPhoto {
+    height: 220px !important;
+  }
+}
+
+@media (430px > width) {
+  .hiro-div {
+    gap: 1rem !important;
+  }
+  .hiro-div {
+    flex-direction: column;
+    align-items: start !important;
+  }
+  .join-div {
+    flex-direction: row !important;
+    padding-bottom: 30px;
+  }
+  .member-divPhoto{
+    min-width: 250px !important;
+  }
+}

@@ -26,7 +26,7 @@ const Api = () => {
 
   return (
     <>
-      <h4 className="mt-2 pt-4 ps-5">{topic}</h4>
+      <h4 className="ms-3 mb-5">{topic}</h4>
       {data.length === 0 ? (
         <div
           className="d-flex gap-2 justify-content-center align-items-center"
@@ -38,10 +38,10 @@ const Api = () => {
         </div>
       ) : (
         <>
-          <div className="row gap-5 mt-4">
+          <div className="API-div row mt-4">
             {data.results?.slice(0, 18).map((book, i) => (
               <div
-                className="col p-0 d-flex justify-content-center align-items-center"
+                className="book-div col p-0 d-flex justify-content-center align-items-center"
                 key={i}
                 style={{ width: "150px" }}
               >

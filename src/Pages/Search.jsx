@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import '../Components/apiTopic.css'
 
 const Search = ({ searchValue, setSearchV }) => {
   const [data, setData] = useState({});
@@ -59,9 +60,9 @@ const Search = ({ searchValue, setSearchV }) => {
   };
 
   return (
-    <div className="p-3 px-5">
+    <div className="changP">
       <div
-        className="p-2 px-5 radius-15"
+        className="changP radius-15"
         style={{
           background: "rgb(238,242,243)",
           color: "rgb(145 0 255)",
@@ -82,10 +83,10 @@ const Search = ({ searchValue, setSearchV }) => {
         </p>
         <form
           id="filter"
-          className="border border-success collapse rounded row g-3 my-2 p-4 pt-1"
+          className="w-100 border border-success collapse rounded row g-3 my-2 p-4 pt-1"
           onSubmit={filterFun}
         >
-          <div className="col-6">
+          <div className="col-12 col-sm-6 ">
             <label htmlFor="name" className="form-label">
               Name
             </label>
@@ -98,7 +99,7 @@ const Search = ({ searchValue, setSearchV }) => {
               onChange={(e) => setForm({ ...form, search: e.target.value })}
             />
           </div>
-          <div className="col-6">
+          <div className="col-12 col-sm-6">
             <label htmlFor="category" className="form-label">
               Category
             </label>
@@ -139,8 +140,8 @@ const Search = ({ searchValue, setSearchV }) => {
               id="autherEnd"
             />
           </div>
-          <div className="col-6 row">
-            <p className="col-12 m-0 mt-3">the Book has Copyright</p>
+          <div className="col-8 col-sm-6 row">
+            <p className="col-12 w-100 m-0 my-2 mt-4">the Book has Copyright</p>
             <div className="form-check col-6">
               <input
                 className="form-check-input"
@@ -200,7 +201,7 @@ const Search = ({ searchValue, setSearchV }) => {
               Filter
             </button>
           </div>
-        </form>{" "}
+        </form>
         <div
           className="d-flex gap-2 justify-content-center align-items-center"
           style={{ minHeight: "75vh" }}
@@ -212,10 +213,10 @@ const Search = ({ searchValue, setSearchV }) => {
               </div>
             ) : data.count > 0 ? (
               <>
-                <div className="row gap-5 mt-4">
+                <div className="API-div row mt-4">
                   {data.results?.slice(0, 18).map((book, i) => (
                     <div
-                      className="col p-0 d-flex justify-content-center align-items-center"
+                      className="book-div col p-0 d-flex justify-content-center align-items-center"
                       key={i}
                       style={{ width: "150px" }}
                     >

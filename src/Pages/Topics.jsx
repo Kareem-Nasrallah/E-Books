@@ -56,9 +56,13 @@ const Topics = () => {
   ];
 
   return (
-    <div className="row mt-2 pt-4 radius-15 justify-content-evenly">
+    <div className="d-flex flex-wrap mt-2 changP radius-15 justify-content-evenly gap-5">
       {topics.map((topic) => (
-        <div className="col-lg-2 col-3 text-center my-4 mx-5" key={topic}>
+        <div className="col-lg-2 col-3 text-center" 
+          style={{
+            width: "160px",
+          }}
+        key={topic}>
           <Link
             className="topics d-inline-block p-2 pb-1 text-decoration-none"
             style={{

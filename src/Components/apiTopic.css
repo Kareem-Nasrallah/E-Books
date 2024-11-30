@@ -1,11 +1,38 @@
-.card-img-overlay{
-    opacity: 0;
-    transition: .5s;
-    background:rgba(255, 255, 255, 0.411);
-    backdrop-filter:blur(10px);
-    
+.card-img-overlay {
+  opacity: 0;
+  transition: 0.5s;
+  background: rgba(255, 255, 255, 0.411);
+  backdrop-filter: blur(10px);
+}
+.card:hover .card-img-overlay {
+  opacity: 1;
+}
+.API-div {
+  gap: 3rem !important;
 }
 
-.card:hover .card-img-overlay{
-    opacity: 1;
+@media (max-width: 768px) {
+  .book-div{
+    margin-bottom: .5rem !important;
+  }
+  .book-div,
+  .book-div div img {
+    width: 100px !important;
+  }
+  .API-div {
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .book-div{
+    margin-bottom: .5rem !important;
+  }
+  .book-div,
+  .book-div div img {
+    width: 80px !important;
+  }
+  .API-div {
+    gap: 1.5rem !important;
+  }
 }

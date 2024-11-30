@@ -28,7 +28,7 @@ const Header = ({ searchValue, setSearchV }) => {
 
   return (
     <nav
-      className="p-3 px-4 mx-5 radius-15 mt-3 navbar navbar-expand-lg navbar-ligh"
+      className="p-3 px-4 mx-4 radius-15 mt-3 navbar navbar-expand-lg navbar-ligh"
       style={{
         background: "#eef2f3",
       }}

@@ -48,6 +48,29 @@
 .radius-15{
   border-radius: 15px;
 }
-.home-hiro{
-  height: 79vh;
+.changP{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+@media (max-width:800px) {
+  .changP{
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+@media (max-width:600px) {
+  .changP{
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  html {
+    font-size: 14px;
+  }
+}
+@media (max-width:425px) {
+  *{
+    min-width: none !important;
+  }
 }

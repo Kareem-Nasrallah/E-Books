@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
+import './home.css'
 
 const Home = () => {
   return (
     <>
-      <div className="row gap-3 p-3 px-5">
+      <div className="row gap-3 changP">
         <div
-          className="col p-2 px-4 radius-15"
+          className="col p-2 px-4 radius-15 hiro-div"
           style={{
             background: "rgb(238,242,243)",
             minWidth: "380px",
           }}
           >
+            <div className="h-100 d-flex justify-content-center">
           <div
             className="h-100 d-flex flex-column gap-4 justify-content-evenly py-3"
           >
+
             <h2
               className="heading m-0 text-capitalize fw-bold"
               style={{
@@ -24,7 +27,7 @@ const Home = () => {
             >
               what book <br /> are you
               <div
-                className="d-inline-block ms-3"
+                className="d-inline-block ms-3 book-div"
                 style={{
                   width: "65px",
                   height: "35px",
@@ -34,7 +37,7 @@ const Home = () => {
                 }}
               >
                 <img
-                  className="d-block m-auto"
+                  className="d-block m-auto book-img"
                   style={{ translate: "0px -15px" }}
                   height="45px"
                   src="/books.png"
@@ -87,16 +90,19 @@ const Home = () => {
             </div>
           </div>
         </div>
+            </div>
         <div
-          className="home-hiro col d-flex align-items-center radius-15"
+          className="hiro-photo col d-flex align-items-center justify-content-center radius-15"
           style={{
+            height: '79vh',
             background: "rgb(255,228,201)",
             maxWidth: "500px",
+            minWidth:"275px",
           }}
         >
           <img
             src="/hero.png"
-            style={{ height: "85%", translate: "-20% 0", maxHeight: "550px" }}
+            style={{ width: "85%", translate: "-20% 0", maxWidth: "550px", minWidth:'330px' }}
           />
         </div>
       </div>

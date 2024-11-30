@@ -1,0 +1,25 @@
+@media (max-width: 735px) {
+  .hiro-photo {
+    max-width: none !important;
+  }
+  .hiro-photo img {
+    max-width: 450px !important ;
+    translate: 0 0 !important;
+  }
+}
+@media (max-width: 600px) {
+  .book-img {
+    translate: 0 -10px !important;
+  }
+  .book-div {
+    translate: 0 0 !important;
+  }
+}
+@media (max-width: 425px) {
+  .hiro-div {
+    min-width: 150px !important;
+  }
+  .hiro-photo img {
+    min-width: 250px !important;
+  }
+}

@@ -1,0 +1,16 @@
+.footer-div {
+  justify-content: space-between;
+}
+@media (max-width: 650px) {
+  .footer-text {
+    width: 200px;
+  }
+  .social-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .footer-div {
+    justify-content: space-evenly !important;
+  }
+}

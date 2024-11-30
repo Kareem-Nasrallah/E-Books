@@ -41,3 +41,8 @@ ul {
     width: 250px !important;
   }
 }
+@media (max-width: 400px) {
+  form{
+    width: 80% !important;
+  }
+}

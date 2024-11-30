@@ -1,16 +1,17 @@
 import React from "react";
+import "./footer.css";
 
 const Footer = () => {
   return (
     <div
       style={{ background: "rgb(238, 242, 243)" }}
-      className="p-3 px-5 mx-5 mb-3 radius-15 d-flex justify-content-between align-items-center"
+      className="footer-div changP mx-4 mb-3 radius-15 d-flex align-items-center"
     >
-      <span className="ps-3">
+      <span className="ps-3 footer-text">
         copyright © 2024 .. by{" "}
         <a
           href="https://k-nasrallah-portfolio.vercel.app"
-          className="fw-bold text-success text-decoration-none"
+          className="fw-bold text-nowrap text-success text-decoration-none"
         >
           Kareem Nasrallah
         </a>
